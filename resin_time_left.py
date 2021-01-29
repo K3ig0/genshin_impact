@@ -18,7 +18,7 @@ def create_resin_datetime(currentResin, approxResinTimeLeft, resin_goal):
 #input
 currentResin=int(input("Current resin: "))
 approxResinTimeLeft=int(input("Approx minute/s left for current resin: "))
-while(counter<=maxResin):
+while(counter<maxResin):
         counter+=20
         create_resin_datetime(currentResin, approxResinTimeLeft, counter)
 print("\n[12-hr format] Results:")
