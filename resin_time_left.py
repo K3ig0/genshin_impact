@@ -1,9 +1,11 @@
 #import
 from datetime import datetime as dt, timedelta as td
+
 #setting
 minPerResin=8
 ls={12:[],24:[]}
 thres=[20,40,60,160]
+
 #main
 def process():
         currentResin=int(input("Current resin: "))
