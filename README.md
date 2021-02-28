@@ -1,4 +1,4 @@
-﻿Python script resin_time_left:
- Input your current resin, return the time at which you will have 20, 40, 80, 160 resin.
- Has 12-hr and 24-hr format.
- Uses python list and dict for code readability.
+Input: Total wait time for resin to fully replenish (obtainable from Map)
+Input format: 23 59
+
+You will be able to find out what datetime you would be able to recover 20, 40, 60, and 160 resin.
