@@ -12,15 +12,17 @@ def process():
                 hour, minute = input("Fully replenished [hh mm]: ").split(" ")
                 timelist = {"hr":hour, "min":minute}
                 for k, v in timelist.items(): timelist[k] = int(v)
-                if (not hour in range(0,24)) or (not minute in range(0,59)): raise ValueError
+                if 0 <= int(minute) <= 59:
+                        approxResinTimeLeft = (timelist["hr"]*60)+timelist["min"]
+                        create_resin_datetime(approxResinTimeLeft)
+                        print("\nResults:")
+                        for i in ls[12]: print(i)
+                        input("\nPress Enter to continue...")
+                else:
+                        raise ValueError
         except ValueError:
-                print("\n***\nPlease try again. Format = hh mm (12 00 for example).\n***\n")
+                print("\n***\nPlease try again. Format = hh mm (12 59 for example).\n***\n")
                 process()
-        approxResinTimeLeft = (timelist["hr"]*60)+timelist["min"]
-        create_resin_datetime(approxResinTimeLeft)
-        print("\nResults:")
-        for i in ls[12]: print(i)
-        input("\nPress Enter to continue...")
 
 def intro():
         print("==> Good day to you, Traveler.")
