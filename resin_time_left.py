@@ -16,7 +16,7 @@ def process():
                         approxResinTimeLeft = (timelist["hr"]*60)+timelist["min"]
                         create_resin_datetime(approxResinTimeLeft)
                         print("\nResults:")
-                        for i in ls[12]: print(i)
+                        for i in ls[24]: print(i)
                         input("\nPress Enter to continue...")
                 else:
                         raise ValueError
