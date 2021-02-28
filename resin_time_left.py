@@ -3,7 +3,7 @@ from datetime import datetime as dt, timedelta as td
 
 #setting
 minPerResin=8
-ls={12:[]}
+ls={12:[], 24:[]}
 thres=[20,40,60,160]
 
 #main
@@ -41,7 +41,9 @@ def create_resin_datetime(approxResinTimeLeft):
                         datetime_for_required_resin = dt.now() + td(minutes=requiredResin*8)
                         date=datetime_for_required_resin.strftime("%d/%h/%Y")
                         formatted_12datetime_for_required_resin = datetime_for_required_resin.strftime("%I:%M%p")
+                        formatted_24datetime_for_required_resin = datetime_for_required_resin.strftime("%H:%M:%S")
                         ls[12].append("==> "+str(goal)+" resin at "+formatted_12datetime_for_required_resin+", "+date)
+                        ls[24].append("==> "+str(goal)+" resin at "+formatted_24datetime_for_required_resin+", "+date)
 
 if __name__ == '__main__':
         intro()
