@@ -4,24 +4,23 @@ from datetime import datetime as dt, timedelta as td
 #setting
 minPerResin=8
 ls={12:[], 24:[]}
-thres=[20,40,60,160]
+thres=[20,40,60,80,120,160]
 
 #main
 def process():
         try:
-                hour, minute = input("Fully replenished [hh mm]: ").split(" ")
-                timelist = {"hr":hour, "min":minute}
-                for k, v in timelist.items(): timelist[k] = int(v)
-                if 0 <= int(minute) <= 59:
-                        approxResinTimeLeft = (timelist["hr"]*60)+timelist["min"]
-                        create_resin_datetime(approxResinTimeLeft)
+                resinNow = int(input("Current resin [n]: ")) #33
+                if 0 <= resinNow <= 159:
+                        approxResinTimeLeft = (160 - resinNow) * 8
+                        print(f"\nFully replenish: around {str(approxResinTimeLeft/60).split('.')[0]} hours\n")
+                        create_resin_datetime(resinNow)
                         print("\nResults:")
-                        for i in ls[24]: print(i)
+                        for i in ls[12]: print(i)
                         input("\nPress Enter to continue...")
                 else:
                         raise ValueError
         except ValueError:
-                print("\n***\nPlease try again. Format = hh mm (12 59 for example).\n***\n")
+                print("\n***\nPlease try again. Format = n (1 for example).\n***\n")
                 process()
 
 def intro():
@@ -33,8 +32,9 @@ def intro():
         print("40 resin = 1x condensed resin or 1x World Boss")
         print("60 resin = 1x Dvalin or 1x Boreas or 1x Childe\n")
 
-def create_resin_datetime(approxResinTimeLeft):
-        currentResin = 160-approxResinTimeLeft/8
+def create_resin_datetime(resinNow):
+        #currentResin = 160-approxResinTimeLeft/8
+        currentResin = resinNow
         for goal in thres:
                 if goal >= currentResin:
                         requiredResin = goal - currentResin
