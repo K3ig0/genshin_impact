@@ -6,4 +6,4 @@ You will be able to find out what datetime you would be able to recover 20, 40, 
 
 If you prefer executable file instead, please download "bin" folder and run "genshin resin timer.exe" within.
 
-Source code is resin_left_time.py
+Source code is resin_time_left.py
